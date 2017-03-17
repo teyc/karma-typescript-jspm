@@ -6,4 +6,4 @@
 
 3. jspm install -d npm:karma-jspm
 
-
+4. update `karma.conf.js`
