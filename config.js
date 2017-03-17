@@ -12,6 +12,7 @@ System.config({
     "karma": "npm:karma@1.5.0",
     "karma-chrome-launcher": "npm:karma-chrome-launcher@2.0.0",
     "karma-jasmine": "npm:karma-jasmine@1.1.0",
+    "karma-jspm": "npm:karma-jspm@2.2.2",
     "typescript": "npm:typescript@2.2.1",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
@@ -647,6 +648,20 @@ System.config({
       "is-glob": "npm:is-glob@2.0.1",
       "path": "github:jspm/nodelibs-path@0.1.0"
     },
+    "npm:glob@7.0.6": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0",
+      "events": "github:jspm/nodelibs-events@0.1.1",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "fs.realpath": "npm:fs.realpath@1.0.0",
+      "inflight": "npm:inflight@1.0.6",
+      "inherits": "npm:inherits@2.0.1",
+      "minimatch": "npm:minimatch@3.0.3",
+      "once": "npm:once@1.4.0",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "path-is-absolute": "npm:path-is-absolute@1.0.1",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "util": "github:jspm/nodelibs-util@0.1.0"
+    },
     "npm:glob@7.1.1": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "events": "github:jspm/nodelibs-events@0.1.1",
@@ -751,7 +766,7 @@ System.config({
       "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
     "npm:inflight@1.0.6": {
-      "once": "npm:once@1.3.3",
+      "once": "npm:once@1.4.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "wrappy": "npm:wrappy@1.0.2"
     },
@@ -846,6 +861,11 @@ System.config({
       "karma": "npm:karma@1.5.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:karma-jspm@2.2.2": {
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "glob": "npm:glob@7.0.6",
+      "path": "github:jspm/nodelibs-path@0.1.0"
     },
     "npm:karma@1.5.0": {
       "bluebird": "npm:bluebird@3.5.0",
@@ -1023,6 +1043,9 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:once@1.3.3": {
+      "wrappy": "npm:wrappy@1.0.2"
+    },
+    "npm:once@1.4.0": {
       "wrappy": "npm:wrappy@1.0.2"
     },
     "npm:optimist@0.6.1": {

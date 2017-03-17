@@ -4,4 +4,6 @@
 
 2. karma init
 
+3. jspm install -d npm:karma-jspm
+
 
