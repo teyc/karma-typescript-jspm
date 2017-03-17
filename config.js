@@ -7,12 +7,13 @@ System.config({
     "npm:*": "jspm_packages/npm/*",
     "typescript": "jspm_packages/npm/typescript@221/lib/typescript.js"
   },
+
   packages: {
-    src: {
-      defaultExtension: 'ts'
+    "src": {
+      "defaultExtension": "ts"
     },
-    test: {
-      defaultExtension: 'ts'
+    "test": {
+      "defaultExtension": "ts"
     }
   },
 

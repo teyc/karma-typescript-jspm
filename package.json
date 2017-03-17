@@ -7,6 +7,10 @@
       "karma-jasmine": "npm:karma-jasmine@^1.1.0",
       "karma-jspm": "npm:karma-jspm@^2.2.2",
       "typescript": "npm:typescript@^2.0.7"
+    },
+    "buildConfig": {
+      "transpileES6": true,
+      "minify": true
     }
   }
 }

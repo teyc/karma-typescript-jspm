@@ -1,0 +1,12 @@
+<html>
+    <div id="message">
+        Calculator module has not been loaded.
+    </div>
+
+    <script src="jspm_packages/system-csp-production.js"></script>
+    <script src="./config.js"></script>
+    <script src="./dist/bundle.js"></script>
+    <script>
+        SystemJS.import('src/calculator.ts');
+    </script>
+</html>

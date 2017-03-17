@@ -12,6 +12,11 @@ built/bundled js files.
 Here are my notes, as well as detailed steps that you might
 find helpful if you wish to set one up in the future.
 
+Note:
+
+there is a known issue with sourcemaps when using the production workflow. See https://github.com/jspm/jspm-cli/issues/1642. This is pretty much a showstopper
+for most teams.
+
 # Quick start
 
     git clone https://github.com/teyc/karma-typescript-jspm.git
@@ -19,10 +24,19 @@ find helpful if you wish to set one up in the future.
     jspm install
     karma start
 
+At this point you should be able to apply changes to calculator.ts
+and calculatorSpec.ts and see that the test runner continuously
+running on the command line.
+
+
+
 # Overview in a picture
 
-The components in this particular stack are wired up in
-a very specific way:
+Although each component in the stack performs a specific function, the configuration
+files for each component tend to leak into one another. For example Karma needs to know
+about the jspm system, and the jspm system needs to know how to configure Typescript. Then,
+`SystemJS` has to understand that Karma serves all the files from a virtual
+directory called `/base`. It gets confusing very quickly!
 
     +----------------------+
     | Chrome               |
@@ -38,6 +52,8 @@ a very specific way:
          |         config.js (karma-jspm loads `config.js` and uses that     )
          |               |   (to load the other modules asynchronously with  )
          |               |   (the SystemJS loader API                        )
+         |               |   (SystemJS loader needs to know when running     )
+         |               |   (with karma, all files are served under /base   )
          |               |
          |               v   (config.js specifies `typescript` as the transpiler )
          |   typescript.js   (this is carried out in the browser on any .ts files)
@@ -49,6 +65,21 @@ a very specific way:
                     section is empty, and its contents moved to `karma.conf.js` where
                     in the `{ jspm { loadFiles: ... } }` configuration                  )
 
+
+# Production workflow
+
+Generating the production packages looks like this:
+
+    jspm bundle src/calculator dist/bundle.js
+
+You can preview the results on http://localhost:8080/ if you have
+`http-server` installed.
+
+    npm install -g http-server
+    http-server
+
+Note: there is a known issue with sourcemaps. https://github.com/jspm/jspm-cli/issues/1642
+      this is pretty much a show stopper for most teams.
 
 Terminology
 ======================
