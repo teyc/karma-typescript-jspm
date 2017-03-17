@@ -3,10 +3,23 @@
 Building a testing stack can be hard if you are not familiar
 with the ins and outs of the technologies involved. I had stepped
 into a project that used typescript, jspm, and karma, and something
-was broken and I had to figure out how things worked.
+was broken and I had to figure out how things worked. Although
+I knew Typescript, I didn't know how it worked in the context of a
+karma testing, and as it turns out, it relies on browser transpilation
+rather than building and bundling on the server rather than shipping
+built/bundled js files.
 
 Here are my notes, as well as detailed steps that you might
 find helpful if you wish to set one up in the future.
+
+# Quick start
+
+    git clone https://github.com/teyc/karma-typescript-jspm.git
+    npm install -g jspm
+    jspm install
+    karma start
+
+# Overview in a picture
 
 The components in this particular stack are wired up in
 a very specific way:
@@ -44,7 +57,9 @@ jspm
 --------
 
 `jspm` is used to download all the required libraries, and it generates a
-manifest file `config.js` that ties module names with the location of the module.
+manifest file `config.js` that is required by SystemJS. The manifest
+file ties module names with the location of the module.
+
 e.g. map `jasmine` module to `jspm_packages\npm\jasmine@2.5.3\`
 
     System.config({
@@ -82,8 +97,12 @@ jasmine
 
 jasmine is a test framework, and it similar to `NUnit`.
 
-How to set up the stack from scratch
---------------------------------------
+typescript
+---------------
+
+Typescript is a strongly typed language that transpiles into javascript.
+
+# How to set up this stack from scratch
 
 In a new directory,
 
@@ -109,6 +128,12 @@ In a new directory,
    to be loaded from `/base/test/calculator.ts`, as
    karma maps `/base` to the document root.
 
+5. With `karma.conf.js` you have to add a `jspm` section,
+   and add `jspm` as the first element in the list of frameworks,
+   so that it looks like this:
+
+        frameworks: ['jspm', 'jasmine'],
+
 Troubleshooting notes
 ---------------------
 
@@ -130,8 +155,3 @@ SystemJS loader that we usually see in the browser. i.e.
 It would take time to tweak the various parameters to make things
 work. Hence this repository.
 
-You can get quickly started by
-
-    `git clone https://github.com/teyc/karma-typescript-jspm.git`
-    `npm install -g jspm`
-    `jspm install`
