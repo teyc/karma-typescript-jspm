@@ -13,7 +13,8 @@ module.exports = function(config) {
     frameworks: ['jspm', 'jasmine'],
 
     jspm: {
-        loadFiles: ['src/**/*.ts', 'test/**/*.ts']
+        loadFiles: ['test/**/*Spec.ts'],
+        serveFiles: ['src/**/*.ts'],
     },
 
     // list of files / patterns to load in the browser
