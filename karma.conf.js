@@ -14,7 +14,7 @@ module.exports = function(config) {
 
     jspm: {
         loadFiles: ['test/**/*Spec.ts'],
-        serveFiles: ['src/**/*.ts'],
+        serveFiles: ['src/**/*.ts', '!test/**/*Spec.ts', 'test/**/*.ts'],
     },
 
     // list of files / patterns to load in the browser
